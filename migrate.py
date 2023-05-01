@@ -12,7 +12,7 @@ with open("contents.html", encoding='utf-8') as fp:
 
     soup.find(id="WIX_ADS").string=''
     for elem in soup(text=re.compile('HOME.*SPONSORS', re.MULTILINE|re.DOTALL)):
-        print(elem.parent)
+        #print(elem.parent)
         navbar = elem.parent
         navbar.string = ''
         for section in sections:
@@ -35,6 +35,10 @@ with open("contents.html", encoding='utf-8') as fp:
     styles.append("html{scroll-behavior: smooth;}")
     styles.append(".underline-on-hover:hover {text-decoration: underline;}")
     styles.append("#site-root{top:0;}")
+
+    for icon_link in soup.findAll('link', {"href": "https://www.wix.com/favicon.ico"}):
+        icon_link["href"] = "./assets/ccf-logo-icon.ico"
+
     with open("index.html", "w", encoding='utf-8') as fout:
         fout.write(str(soup))
         
