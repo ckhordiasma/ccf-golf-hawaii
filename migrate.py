@@ -5,8 +5,8 @@ sections = [
     {'name': 'HOME', 'id': 'SITE_HEADER'},
     {'name': 'SPONSORSHIP', 'id': 'sponsorship'},
     {'name': 'DONATIONS', 'id': 'donations'},
-    {'name': 'SCHOLARSHIP/GRANT', 'id': 'scholarship-grant'},
-    {'name': '2022 ARCHIVE', 'id': '2022-archive'},
+    {'name': 'SCHOLARSHIP&GRANT', 'id': 'scholarship-grant'},
+    {'name': 'ARCHIVE', 'id': 'archive'},
     {'name': 'PHOTOS', 'id': 'photos'},
     {'name': 'CONTACT US', 'id': 'SITE_FOOTER'},
 ]
@@ -25,7 +25,7 @@ with open("contents.html", encoding='utf-8') as fp:
             new_link.string = section['name']
             new_link['class'] = 'underline-on-hover'
             navbar.append(new_link)
-            navbar.append('\xa0\xa0\xa0\xa0')
+            navbar.append('\xa0\xa0\xa0')
     section_container = soup.findAll('div', {"data-mesh-id": "Containerc1dmpinlineContent-gridContainer"})[0]
     section_divs = section_container.findChildren("section", recursive=False)
     
